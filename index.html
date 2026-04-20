@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أكاديمية قطاف | النسخة التشغيلية</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="authModal" class="overlay">
+      <div class="card auth-card">
+        <h1>أكاديمية قطاف</h1>
+        <p>اختر نوع الدخول ثم اكتب كلمة المرور.</p>
+        <div class="tabs">
+          <button class="tab active" data-role="student">طالب/زائر</button>
+          <button class="tab" data-role="admin">مدير الأكاديمية</button>
+        </div>
+        <input id="authPassword" type="password" placeholder="كلمة المرور" />
+        <button id="loginBtn">تسجيل الدخول</button>
+        <p class="hint">نسخة تشغيل محلية للتجربة. التواصل: 01033232430</p>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <div>
+        <h1>أكاديمية قطاف</h1>
+        <p>منصة تعليم القرآن والعلوم الشرعية والمهارات الحديثة</p>
+      </div>
+      <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#courses">الكورسات</a>
+        <a href="#books">الكتب</a>
+        <a href="#plans">الباقات</a>
+        <a href="#student">ملف الطالب</a>
+        <a href="#comments">التعليقات</a>
+        <a href="#admin">لوحة التحكم</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero panel">
+        <h2>أهلاً بك في أكاديمية قطاف</h2>
+        <p>
+          منصة متكاملة فيها كورسات عربية وإنجليزية، مكتبة كتب، متابعة حفظ القرآن، نقاط ذكية،
+          شهادة تقدير، وحضور/غياب للطلاب.
+        </p>
+        <div class="quick-stats">
+          <div><b id="statCourses">0</b><span>كورس</span></div>
+          <div><b id="statBooks">0</b><span>كتاب</span></div>
+          <div><b id="statStudents">0</b><span>طالب</span></div>
+        </div>
+      </section>
+
+      <section id="courses" class="panel">
+        <div class="flex-between">
+          <h3>الكورسات المتاحة</h3>
+          <input id="courseSearch" placeholder="ابحث عن كورس أو محاضر" />
+        </div>
+        <div id="courseList" class="grid"></div>
+      </section>
+
+      <section id="books" class="panel">
+        <div class="flex-between">
+          <h3>المكتبة</h3>
+          <input id="bookSearch" placeholder="ابحث عن كتاب" />
+        </div>
+        <div id="bookList" class="grid"></div>
+      </section>
+
+      <section id="plans" class="panel">
+        <h3>الباقات والدفع</h3>
+        <div class="grid plans">
+          <article>
+            <h4>الباقة العامة</h4>
+            <p>10 جنيه / شهر</p>
+            <ul><li>كورسات عامة</li><li>مكتبة كتب</li><li>تعليقات وتفاعل</li></ul>
+          </article>
+          <article>
+            <h4>تحفيظ القرآن</h4>
+            <p>100 جنيه / شهر</p>
+            <ul><li>متابعة يومية</li><li>تقارير ولي الأمر</li><li>اختبارات دورية</li></ul>
+          </article>
+        </div>
+
+        <h4>إرسال إثبات الدفع</h4>
+        <form id="paymentForm" class="stack">
+          <input id="payerName" required placeholder="اسم الطالب" />
+          <input id="payerPhone" required placeholder="رقم واتساب" />
+          <select id="payerPlan" required>
+            <option value="">اختر الباقة</option>
+            <option>الباقة العامة (10 جنيه)</option>
+            <option>تحفيظ القرآن (100 جنيه)</option>
+          </select>
+          <input id="proofLink" required placeholder="رابط صورة إثبات الدفع" />
+          <button>إرسال الطلب</button>
+        </form>
+        <p id="paymentStatus"></p>
+      </section>
+
+      <section id="student" class="panel">
+        <h3>ملف الطالب</h3>
+        <div class="grid student-grid">
+          <article>
+            <h4>بيانات المتابعة</h4>
+            <p>النقاط: <b id="pointsView">0</b></p>
+            <p>الحضور: <b id="attendanceView">0%</b></p>
+            <p>الغياب: <b id="absenceView">0%</b></p>
+          </article>
+          <article>
+            <h4>ورد اليوم</h4>
+            <p id="dailyWerd">لم يتم تحديد ورد بعد.</p>
+            <button id="shareWerdBtn">إرسال الورد لولي الأمر على واتساب</button>
+          </article>
+          <article>
+            <h4>شهادة التقدير</h4>
+            <input id="certName" placeholder="اسم الطالب" />
+            <button id="generateCert">توليد الشهادة</button>
+            <pre id="certificate"></pre>
+          </article>
+        </div>
+      </section>
+
+      <section id="comments" class="panel">
+        <h3>تعليقات الطلاب</h3>
+        <form id="commentForm" class="stack">
+          <input id="commentName" required placeholder="اسمك" />
+          <textarea id="commentText" required placeholder="اكتب تعليقك"></textarea>
+          <button>إضافة تعليق</button>
+        </form>
+        <ul id="commentList"></ul>
+      </section>
+
+      <section id="admin" class="panel">
+        <h3>لوحة التحكم (المدير)</h3>
+        <p>لوحة إدارة المحتوى وقبول الطلبات ومتابعة الطلاب.</p>
+
+        <div id="adminLocked">قم بتسجيل الدخول كمدير للوصول الكامل.</div>
+
+        <div id="adminPanel" class="hidden stack">
+          <div class="grid admin-stats">
+            <article><h4>طلبات معلقة</h4><p id="pendingCount">0</p></article>
+            <article><h4>إجمالي الطلاب</h4><p id="studentsCount">0</p></article>
+            <article><h4>التعليقات</h4><p id="commentsCount">0</p></article>
+          </div>
+
+          <h4>طلبات الدفع</h4>
+          <ul id="pendingPayments"></ul>
+
+          <h4>إضافة كورس</h4>
+          <form id="addCourseForm" class="stack">
+            <input id="newCourseTitle" required placeholder="عنوان الكورس" />
+            <input id="newCourseTeacher" required placeholder="اسم المحاضر" />
+            <input id="newCourseImage" required placeholder="رابط صورة الكورس" />
+            <button>نشر الكورس</button>
+          </form>
+
+          <h4>إضافة كتاب</h4>
+          <form id="addBookForm" class="stack">
+            <input id="newBookTitle" required placeholder="اسم الكتاب" />
+            <input id="newBookLink" required placeholder="رابط الكتاب" />
+            <input id="newBookImage" required placeholder="رابط صورة الغلاف" />
+            <button>نشر الكتاب</button>
+          </form>
+
+          <h4>تحديث بيانات طالب</h4>
+          <form id="studentForm" class="stack">
+            <input id="studentName" required placeholder="اسم الطالب" />
+            <input id="studentPhone" required placeholder="واتساب ولي الأمر" />
+            <input id="studentPoints" type="number" required placeholder="النقاط" />
+            <input id="studentAttendance" type="number" required placeholder="نسبة الحضور" />
+            <input id="studentAbsence" type="number" required placeholder="نسبة الغياب" />
+            <input id="studentWerd" required placeholder="ورد اليوم" />
+            <button>حفظ بيانات الطالب</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>إدارة الأكاديمية: وليد زيادة | واتساب: 01033232430</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
