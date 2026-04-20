@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أكاديمية قطاف | منصة تعليمية متكاملة</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="gate" class="gate">
+      <div class="card">
+        <h1>أكاديمية قطاف</h1>
+        <p>أدخل كلمة المرور العامة للدخول إلى المنصة.</p>
+        <input id="sitePassword" type="password" placeholder="كلمة المرور" />
+        <button id="openSiteBtn">دخول المنصة</button>
+        <small>نسخة تجريبية – كلمة المرور الحالية: <b>waleedzeyada</b></small>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <div>
+        <h1>أكاديمية قطاف</h1>
+        <p>لصاحبها: خادم القرآن / وليد زيادة</p>
+      </div>
+      <nav>
+        <a href="#courses">الكورسات</a>
+        <a href="#books">المكتبة</a>
+        <a href="#plans">الباقات</a>
+        <a href="#live">البث المباشر</a>
+        <a href="#student">حساب الطالب</a>
+        <a href="#comments">التعليقات</a>
+        <a href="#admin">لوحة التحكم</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h2>تعلم القرآن والعلوم الشرعية والمهارات الحديثة في مكان واحد</h2>
+          <p>
+            تسجيل مجاني، ثم تفعيل الاشتراك بعد الدفع الشهري. المنصة تشمل كورسات دينية وغير
+            دينية بالعربية والإنجليزية، بثوث مباشرة، كتب ومصاحف، ونظام نقاط وحضور وغياب.
+          </p>
+          <p><b>التواصل واتساب/فوري: 01033232430</b></p>
+        </div>
+      </section>
+
+      <section id="motion" class="panel">
+        <h3>ريلز متحرك (بدون صوت) للتعريف بالأكاديمية</h3>
+        <video controls muted playsinline poster="https://images.unsplash.com/photo-1461360228754-6e81c478b882?q=80&w=1200&auto=format&fit=crop">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+        </video>
+        <p>
+          بداية الريلز المقترحة: "أكاديمية قطاف - طريقك للحفظ والتدبر والفهم وتعلم المقامات
+          الصوتية بأسلوب سهل".
+        </p>
+      </section>
+
+      <section id="courses" class="panel">
+        <h3>الكورسات المتاحة</h3>
+        <div id="courseList" class="grid"></div>
+      </section>
+
+      <section id="books" class="panel">
+        <h3>مكتبة الكتب والمصاحف</h3>
+        <p>النسخة الحالية تعرض نماذج قابلة للتوسعة حتى 10,000 كتاب.</p>
+        <div id="bookList" class="grid"></div>
+      </section>
+
+      <section id="plans" class="panel">
+        <h3>باقات الاشتراك</h3>
+        <div class="grid plans">
+          <article>
+            <h4>دخول المنصة</h4>
+            <p>10 جنيه / شهر</p>
+            <ul>
+              <li>كل الكتب والكورسات العامة</li>
+              <li>نقاط وتقييم</li>
+              <li>بث مباشر جماعي</li>
+            </ul>
+          </article>
+          <article>
+            <h4>تحفيظ القرآن</h4>
+            <p>يبدأ من 100 جنيه / شهر</p>
+            <ul>
+              <li>متابعة فردية</li>
+              <li>أوراد يومية تلقائية</li>
+              <li>تقارير ولي الأمر</li>
+            </ul>
+          </article>
+        </div>
+        <h4>إثبات الدفع</h4>
+        <form id="paymentForm" class="stack">
+          <input required id="payerName" placeholder="اسم الطالب" />
+          <input required id="payerPhone" placeholder="رقم واتساب" />
+          <input required id="proofLink" placeholder="رابط صورة إثبات الدفع" />
+          <button type="submit">إرسال إثبات الدفع</button>
+        </form>
+        <div id="paymentStatus"></div>
+      </section>
+
+      <section id="live" class="panel">
+        <h3>البث المباشر</h3>
+        <p>يمكن وضع روابط Zoom أو YouTube مباشرة للطلاب.</p>
+        <a class="btn" href="https://www.youtube.com/live" target="_blank">فتح بث مباشر</a>
+      </section>
+
+      <section id="student" class="panel">
+        <h3>ملف الطالب</h3>
+        <div class="grid student-grid">
+          <article>
+            <h4>الإحصائيات الذكية</h4>
+            <p>نقاط: <b id="points">420</b></p>
+            <p>الحضور: <b id="attendance">88%</b></p>
+            <p>الغياب: <b id="absence">12%</b></p>
+          </article>
+          <article>
+            <h4>ورد اليوم</h4>
+            <p id="dailyWerd">حفظ 10 آيات + مراجعة الماضي القريب + الماضي البعيد</p>
+          </article>
+          <article>
+            <h4>شهادة التقدير</h4>
+            <button id="generateCert">توليد شهادة باسم الطالب</button>
+            <pre id="certificate"></pre>
+          </article>
+        </div>
+      </section>
+
+      <section id="comments" class="panel">
+        <h3>التعليقات والمراجعات</h3>
+        <form id="commentForm" class="stack">
+          <input id="commentName" required placeholder="اسمك" />
+          <textarea id="commentText" required placeholder="اكتب تعليقك"></textarea>
+          <button>إضافة تعليق</button>
+        </form>
+        <ul id="commentList"></ul>
+      </section>
+
+      <section id="admin" class="panel admin">
+        <h3>لوحة تحكم المدير</h3>
+        <p>الدخول بكلمة سر خاصة لقبول الطلبات وإضافة محتوى جديد.</p>
+        <input id="adminPassword" type="password" placeholder="كلمة سر المدير" />
+        <button id="openAdminBtn">فتح لوحة التحكم</button>
+
+        <div id="adminPanel" class="hidden">
+          <h4>طلبات الدفع المعلقة</h4>
+          <ul id="pendingPayments"></ul>
+
+          <h4>إضافة كورس</h4>
+          <form id="addCourseForm" class="stack">
+            <input id="newCourseTitle" required placeholder="عنوان الكورس" />
+            <input id="newCourseTeacher" required placeholder="اسم المحاضر" />
+            <input id="newCourseImage" required placeholder="رابط صورة حقيقية" />
+            <button>نشر الكورس</button>
+          </form>
+
+          <h4>إضافة كتاب</h4>
+          <form id="addBookForm" class="stack">
+            <input id="newBookTitle" required placeholder="اسم الكتاب" />
+            <input id="newBookLink" required placeholder="رابط الكتاب" />
+            <input id="newBookImage" required placeholder="رابط صورة الغلاف" />
+            <button>نشر الكتاب</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>أكاديمية قطاف © جميع الحقوق محفوظة</p>
+      <p>للتواصل: 01033232430</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
